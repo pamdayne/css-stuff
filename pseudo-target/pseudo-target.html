@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      :root {
+        --space: 10px;
+        --space-sm: 5px;
+      }
+
+      /* general */
+      body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+
+      a {
+        text-decoration: none;
+        padding: var(--space-sm) var(--space);
+        background-color: aliceblue;
+        border-radius: var(--space-sm);
+      }
+
+      a:active,
+      a:focus {
+        background-color: coral;
+      }
+
+      a:focus,
+      a:visited {
+        color: inherit;
+      }
+
+      .content,
+      .menu {
+        padding: var(--space);
+      }
+
+      .use-case-item {
+        background-color: antiquewhite;
+        padding: var(--space);
+        margin-bottom: var(--space);
+      }
+
+      /* tabs */
+      .tab-wrapper .tab-content-item {
+        display: none;
+      }
+
+      .tab-wrapper .tab-content-item:target {
+        display: block;
+      }
+
+      /* content highlight */
+      .content-highlight-wrapper .content-portion {
+        background-color: transparent;
+      }
+
+      .content-highlight-wrapper :target {
+        background-color: skyblue;
+      }
+
+      /* popup */
+      .content-popup .popup {
+        position: fixed;
+        background-color: lightblue;
+        display: none;
+      }
+
+      .content-popup .popup:target {
+        display: block;
+      }
+
+    </style>
+    <title>Pseudo-class :target</title>
+  </head>
+  <body>
+    <div class="use-case">
+      <h1>:target Use Cases</h1>
+      <div class="use-case-item">
+        <h2>1. Simple Tabs</h2>
+        <div class="tab-wrapper">
+          <div class="tab-menu menu">
+            <a href="#tab1" class="tab-menu-item">Tab 1</a>
+            <a href="#tab2" class="tab-menu-item">Tab 2</a>
+            <a href="#tab3" class="tab-menu-item">Tab 3</a>
+          </div>
+
+          <div class="content tab-content-wrapper">
+            <div class="tab-content-item" id="tab1" style="display: block;">Lorem, ipsum dolor.</div>
+            <div class="tab-content-item" id="tab2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+            <div class="tab-content-item" id="tab3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis quo
+              asperiores laboriosam consequuntur omnis quis commodi rem cupiditate illo eveniet harum id sunt inventore
+              voluptatum, dolores earum quaerat necessitatibus tempore!</div>
+          </div>
+        </div>
+      </div>
+      <div class="use-case-item">
+        <h2>2. Content highlighting</h2>
+        <div class="content-highlight-wrapper">
+          <div class="menu">
+            <a href="#highlight">Highlight 1</a>
+            <a href="#highlight2">Highlight 2</a>
+          </div>
+          <div class="content">
+            Lorem ipsum dolor sit amet consectetur, <span id="highlight">yeah</span> adipisicing elit. Quo, aperiam,
+            repellendus odit nostrum dignissimos dicta error maxime quisquam, dolore eligendi modi sit architecto
+            commodi quos quidem unde <span id="highlight2">yeah</span> voluptates veniam. </div>
+        </div>
+      </div>
+      <div class="use-case-item">
+        <h2>3. Popup</h2>
+        <div class="content-popup">
+          <div class="menu">
+            <a href="#popup">Open Popup</a>
+          </div>
+          <div class="content">
+            <div class="content-sm">Lorem, ipsum dolor.</div>
+            <div class="popup" id="popup">
+              <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, minima!
+                <a href="#close">Close</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="use-case-item">
+        <h2>4. Reference</h2>
+        <div class="content">
+          <a href="pseudo-target-page-reference.html#reference">Reference another page</a>
+          <p>Slightly similar to <code>l#:~:text=</code>, but not really?</p>
+          <a href="pseudo-target-page-reference.html#:~:text=Perferendis,repellat">Reference to other same page</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
